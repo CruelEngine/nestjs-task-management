@@ -14,6 +14,10 @@ export class TasksService {
   //   return this.tasks;
   // }
 
+  async getTasks(filterDto : GetTasksFilterDto): Promise<Task[]> {
+   return await this.taskRespository.getTasks(filterDto);
+  }
+
   async createTask(createTaskDto: CreateTaskDto): Promise<Task> {
     return this.taskRespository.createTask(createTaskDto);
   }
@@ -34,27 +38,11 @@ export class TasksService {
     this.taskRespository.remove(taskFound);
   }
 
+  async updateTaskStatus(id: number, status: TaskStatus): Promise<Task> {
+    const task = await this.getTaskById(id);
+    task.status  = status;
+    await task.save();
+    return task;
+  }
 
-  // updateTaskStatus(id: string, status: TaskStatus): Task {
-  //   const task = this.getTaskById(id);
-  //   task.status = status;
-  //   return task;
-  // }
-
-  // getTasksWithFilters(filterDto: GetTasksFilterDto): Task[] {
-  //   const { status, search } = filterDto;
-
-  //   let tasks = this.getAllTasks();
-  //   if (status) {
-  //     tasks = tasks.filter(task => task.status === status);
-  //   }
-  //   if (search) {
-  //     tasks = tasks.filter(
-  //       task =>
-  //         task.title.includes(search) || task.description.includes(search),
-  //     );
-  //   }
-
-  //   return tasks;
-  // }
 }
