@@ -3,7 +3,7 @@ import { GetTasksFilterDto } from './dto/get-tasks-filter.dto';
 import { TaskRepository } from './repositories/task.repository';
 import { Task } from './entities/task.entity';
 import { TaskStatus } from './task-status.enum';
-import { User } from 'src/auth/entities/user.entity';
+import { User } from '../auth/entities/user.entity';
 export declare class TasksService {
     private taskRespository;
     constructor(taskRespository: TaskRepository);

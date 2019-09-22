@@ -40,7 +40,9 @@ let TasksService = class TasksService {
     }
     getTaskById(id, user) {
         return __awaiter(this, void 0, void 0, function* () {
-            const taskFound = yield this.taskRespository.findOne({ where: { id, userId: user.id } });
+            const taskFound = yield this.taskRespository.findOne({
+                where: { id, userId: user.id },
+            });
             if (!taskFound) {
                 throw new common_1.NotFoundException(`Task With "${id}" not found`);
             }

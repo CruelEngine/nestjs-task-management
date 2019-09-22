@@ -15,11 +15,7 @@ let AppModule = class AppModule {
 };
 AppModule = __decorate([
     common_1.Module({
-        imports: [
-            tasks_module_1.TasksModule,
-            typeorm_1.TypeOrmModule.forRoot(typeorm_config_1.typeOrmConfig),
-            auth_module_1.AuthModule,
-        ],
+        imports: [tasks_module_1.TasksModule, typeorm_1.TypeOrmModule.forRoot(typeorm_config_1.typeOrmConfig), auth_module_1.AuthModule],
     })
 ], AppModule);
 exports.AppModule = AppModule;

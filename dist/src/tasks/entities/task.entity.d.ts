@@ -1,6 +1,6 @@
 import { BaseEntity } from 'typeorm';
 import { TaskStatus } from '../task-status.enum';
-import { User } from 'src/auth/entities/user.entity';
+import { User } from '../../auth/entities/user.entity';
 export declare class Task extends BaseEntity {
     id: number;
     title: string;

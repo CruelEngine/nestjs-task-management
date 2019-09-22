@@ -20,7 +20,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
 const bcryptjs_1 = require("bcryptjs");
-const task_entity_1 = require("src/tasks/entities/task.entity");
+const task_entity_1 = require("../../tasks/entities/task.entity");
 let User = class User extends typeorm_1.BaseEntity {
     validatePassword(password) {
         return __awaiter(this, void 0, void 0, function* () {

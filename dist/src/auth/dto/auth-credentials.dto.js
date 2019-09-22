@@ -22,7 +22,9 @@ __decorate([
     class_validator_1.IsString(),
     class_validator_1.MinLength(8),
     class_validator_1.MaxLength(20),
-    class_validator_1.Matches(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, { message: 'password is too weak' }),
+    class_validator_1.Matches(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, {
+        message: 'password is too weak',
+    }),
     __metadata("design:type", String)
 ], AuthCredentialsDto.prototype, "password", void 0);
 exports.AuthCredentialsDto = AuthCredentialsDto;

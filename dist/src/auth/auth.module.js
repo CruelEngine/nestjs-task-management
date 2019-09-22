@@ -31,14 +31,8 @@ AuthModule = __decorate([
             typeorm_1.TypeOrmModule.forFeature([user_repository_1.UserRepository]),
         ],
         controllers: [auth_controller_1.AuthController],
-        providers: [
-            auth_service_1.AuthService,
-            jwt_strategy_1.JwtStrategy,
-        ],
-        exports: [
-            jwt_strategy_1.JwtStrategy,
-            passport_1.PassportModule,
-        ]
+        providers: [auth_service_1.AuthService, jwt_strategy_1.JwtStrategy],
+        exports: [jwt_strategy_1.JwtStrategy, passport_1.PassportModule],
     })
 ], AuthModule);
 exports.AuthModule = AuthModule;

@@ -22,10 +22,6 @@ function bootstrap() {
             console.log('env develop');
             app.enableCors();
         }
-        else {
-            app.enableCors({ origin: serverConfig.origin });
-            logger.log(`Accepting requests from origin "${serverConfig.origin}" `);
-        }
         const port = process.env.PORT || serverConfig.port;
         yield app.listen(port);
         logger.log(`Application Listening on port ${port}`);

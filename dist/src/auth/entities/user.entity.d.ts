@@ -1,5 +1,5 @@
-import { BaseEntity } from "typeorm";
-import { Task } from "src/tasks/entities/task.entity";
+import { BaseEntity } from 'typeorm';
+import { Task } from '../../tasks/entities/task.entity';
 export declare class User extends BaseEntity {
     id: number;
     username: string;

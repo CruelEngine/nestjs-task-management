@@ -3,7 +3,7 @@ import { CreateTaskDto } from './dto/create-task-dto';
 import { GetTasksFilterDto } from './dto/get-tasks-filter.dto';
 import { Task } from './entities/task.entity';
 import { TaskStatus } from './task-status.enum';
-import { User } from 'src/auth/entities/user.entity';
+import { User } from '../auth/entities/user.entity';
 export declare class TasksController {
     private tasksService;
     private logger;
