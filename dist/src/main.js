@@ -16,11 +16,19 @@ const config = require("config");
 function bootstrap() {
     return __awaiter(this, void 0, void 0, function* () {
         const serverConfig = config.get('server');
+        console.log(serverConfig);
+        console.log(config.get('server'));
+        console.log(process.env.NODE_ENV);
         const logger = new common_1.Logger('bootstrap');
         const app = yield core_1.NestFactory.create(app_module_1.AppModule);
         if (process.env.NODE_ENV === 'development') {
             console.log('env develop');
             app.enableCors();
+        }
+        else {
+            console.log(`ORIGIN`, serverConfig.origin);
+            app.enableCors({ origin: serverConfig.origin });
+            logger.log(`Accepting requests from origin "${serverConfig.origin}" `);
         }
         const port = process.env.PORT || serverConfig.port;
         yield app.listen(port);
