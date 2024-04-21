@@ -12,9 +12,6 @@ export class TasksService {
   constructor(
     @InjectRepository(TaskRepository) private taskRespository: TaskRepository,
   ) {}
-  // getAllTasks(): Task[] {
-  //   return this.tasks;
-  // }
 
   async getTasks(filterDto: GetTasksFilterDto, user: User): Promise<Task[]> {
     return await this.taskRespository.getTasks(filterDto, user);
