@@ -10,18 +10,18 @@ export class AuthService {
   private logger = new Logger('AuthService');
 
   constructor(
-    @InjectRepository(UserRepository) private userReposiroty: UserRepository,
+    @InjectRepository(UserRepository) private userRepository: UserRepository,
     private jwtService: JwtService,
   ) {}
 
   async signUp(authCredentialsDto: AuthCredentialsDto): Promise<void> {
-    return this.userReposiroty.signUp(authCredentialsDto);
+    return this.userRepository.signUp(authCredentialsDto);
   }
 
   async signIn(
     authCredentialsDto: AuthCredentialsDto,
   ): Promise<{ accessToken }> {
-    const username = await this.userReposiroty.validateUserPassword(
+    const username = await this.userRepository.validateUserPassword(
       authCredentialsDto,
     );
     if (!username) {

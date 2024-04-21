@@ -1,13 +1,17 @@
-import { Repository, EntityRepository } from 'typeorm';
+import { Repository, EntityRepository, DataSource } from 'typeorm';
 import { Task } from '../entities/task.entity';
 import { CreateTaskDto } from '../dto/create-task-dto';
 import { TaskStatus } from '../task-status.enum';
 import { GetTasksFilterDto } from '../dto/get-tasks-filter.dto';
 import { User } from 'src/auth/entities/user.entity';
-import { Logger, InternalServerErrorException } from '@nestjs/common';
+import { Logger, InternalServerErrorException, Injectable } from '@nestjs/common';
 
-@EntityRepository(Task)
+@Injectable()
 export class TaskRepository extends Repository<Task> {
+
+  constructor(private datasource: DataSource) {
+    super(Task, datasource.createEntityManager());
+  }
   private logger = new Logger('TasksRepository');
 
   async getTasks(filterDto: GetTasksFilterDto, user: User): Promise<Task[]> {
