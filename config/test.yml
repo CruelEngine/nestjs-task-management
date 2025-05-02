@@ -1,0 +1,10 @@
+db:
+  host: 'localhost'
+  username: 'postgres'
+  password: 'postgres'
+  synchronize: true
+  port: 5432
+
+jwt:
+  expiresIn: 3600
+  secret: 'topSecret51'
